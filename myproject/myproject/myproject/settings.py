@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'myproject',
 
     'pengguna',
+    'formulir',
 ]
 
 MIDDLEWARE = [

@@ -28,37 +28,22 @@ def akun_pengguna(request):
     }
     return render(request, template, context)
     
-
-# def formulir_view(request):
-#     template = "dashboard/snippets/formulir.html"
-#     if request.method == 'POST':
-#         form = FormulirForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('success_url')  # Redirect ke halaman sukses setelah menyimpan data
-#     else:
-#         form = FormulirForm()
-
-#     context={
-#         'form': form
-#     }
-#     return render(request,template,context)
-
 def formulir_view(request):
     print(request.user)
-    template_name ="dasboard/snippets/formulir.html"
+    template= "dashboard/snippets/formulir.html"
     if request.method == "POST":
-        forms = FormulirForm(request.POST, request.FILES)
-        if forms.is_valid:
-            pub = forms.save(commit=False)
-            pub.nama = request.user
-            pub.save()
-            return redirect('/')
+        form = FormulirForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('{% url "dashboard" %}')
         else:
-            print(forms.error_class)
-    forms = FormulirForm()
-    context ={
-        'title' : 'Formulir',
-        'forms' : forms
+            print("Form is invalid")
+            print(form.errors)  # Print form errors
+            print(request.POST)  # Print POST data for debugging
+    else:
+        form = FormulirForm()
+    context = {
+        'title': 'Formulir',
+        'form': form
     }
-    return render(request,template_name,context)
+    return render(request, template, context)

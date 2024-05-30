@@ -1,15 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth import User
 
-class Pendaftar(models.Model):
-    user= models
-    nama = models.CharField(max_length=100)
-    alamat = models.TextField()
-    umur =models.IntegerField(blank=False,null=False)
 
-    def __str__(self):
-        return self.nama
-    
+# Create your models here.
 class Formulir(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nama = models.TextField(max_length=25, blank=True, null=True)

@@ -1,14 +1,10 @@
-<!-- templates/dashboard/index.html -->
 {% extends 'dashboard/base.html' %}
 {% load static %}
 {% block content %}
-   <!-- Content -->
-   <div class="col-lg-12 col-12 mt-md-0 mt-4" style="margin-left: 250px; width: 80%;">
-          <div class="card z-index-2 mt-4" style="border: 1px solid #ddd; box-shadow: 0px 4px 8px rgba(0,0,0,0.1);">
+      <!-- Content-->
+   <div class="col-lg-12 col-12 mt-md-0 mt-4" style="margin-left: 50px; width: 90%;">
+          <div class="card z-index-2 mt-4" style="border: 1px solid #f5e2e2; box-shadow: 0px 4px 8px rgba(0,0,0,0.1);">
             <div class="card-header p-3 pt-2" style="background-color: #f9f9f9;">
-              <div class="icon icon-lg icon-shape bg-gradient-warning shadow-warning text-center border-radius-xl mt-n4 me-3 float-start">
-                <i class="material-icons opacity-10">pie_chart</i>
-              </div>
               <h6 class="mb-0">Jumlah Pendaftar</h6>
               <p class="mb-0 text-sm">Tahun 2024</p>
             </div>
@@ -41,7 +37,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-12 col-12 mt-4" style="width: 80%; margin-left: 250px;">
+        <div class="col-lg-12 col-12 mt-4" style="width: 90%; margin-left: 50px;">
           <div class="card">
             <div class="card-header">
               <h5 class="card-title">Kalender Acara</h5>
@@ -86,4 +82,5 @@
             });
           });
         </script>
-{% endblock %}
+
+  {% endblock %}
