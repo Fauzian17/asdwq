@@ -1,250 +1,90 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
-  <title>PMB ONLINE</title>
-  <!-- Favicon -->
-  <link rel="icon" href='{% static "admin/assets/img/brand/favicon.png" %}' type="image/png">
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-  <!-- Icons -->
-  <link rel="stylesheet" href='{% static "admin/assets/vendor/nucleo/css/nucleo.css" %}' type="text/css">
-  <link rel="stylesheet" href='{% static "admin/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" %}' type="text/css">
-  <!-- Argon CSS -->
-  <link rel="stylesheet" href='{% static "admin/assets/css/argon.css" %}' ?v=1.2.1 type="text/css">
-</head>
-
-<body>
-  <!-- Sidenav -->
-  {% include 'dashboard/navbar.html' %}
-  
-  <!-- Main content -->
-  {% block content %}
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Forms</h6>
+{% extends 'dashboard/base.html' %} {% load static %} {% block content %}
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <form method="POST" class="form-horizontal" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card-header">
+            <h4 class="card-title">{{ title }}</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <label class="col-sm-2 col-form-label">Nama</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.nama }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.email }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Tempat Lahir</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.tempat_lahir }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.tanggal_lahir }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">NIK</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.nik }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">No HP</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.no_hp }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">No HP Ortu</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.no_hp_ortu }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Alamat</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.alamat }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Kelurahan</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.kelurahan }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Kecamatan</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.kecamatan }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Kabupaten</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.kabupaten }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.jenis_kelamin }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Program Studi 1</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.prodi1 }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Program Studi 2</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.prodi2 }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Program Studi 3</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.prodi3 }}</div>
+              </div>
+              <label class="col-sm-2 col-form-label">Foto</label>
+              <div class="col-sm-10">
+                <div class="form-group">{{ forms.foto }}</div>
+              </div>
             </div>
           </div>
-        </div>
+          <div class="card-footer text-right">
+            <button class="btn btn-success">Simpan</button>
+          </div>
+        </form>
       </div>
     </div>
-    <!-- Page content -->
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <div class="container-fluid mt--6">
-        <div class="card mb-4">
-          <!-- Card header -->
-          <div class="card-header">
-          <h3 class="mb-0">Formulir Pendaftaran</h3>
-            </div>
-            <!-- Card body -->
-            <div class="card-body">
-            <!-- Form groups used in grid -->
-            <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                    <label class="form-control-label" for="example3cols1Input">Nama Lengkap</label>
-                    <input name="nama-lengkap" type="text" class="form-control" id="example3cols1Input" placeholder="Nama Lengkap" name="name">
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-group">
-                    <label class="form-control-label" for="example3cols2Input">EMAIL</label>
-                    <input name="email" type="text" class="form-control" id="example3cols2Input" placeholder="Email" name="email">
-                </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                <div class="form-group">
-                    <label class="form-control-label" for="example4cols1Input">TEMPAT LAHIR</label>
-                    <input name="tempat_lahir" type="text" class="form-control" id="example4cols1Input" placeholder="TEMPAT LAHIR" name="tempat_lahir">
-                </div>
-                </div>
-                <div class="col-sm-4">
-                <div class="form-group">
-                    <label class="form-control-label" for="example4cols2Input">TANGGAL LAHIR</label>
-                    <input name="tanggal_lahir" type="date" class="form-control" id="example4cols2Input" placeholder="TANGGAL LAHIR" name="tanggal_lahir">
-                </div>
-                </div>
-                <div class="col-sm-4">
-                <div class="form-group">
-                    <label class="form-control-label" for="example4cols3Input">NIK</label>
-                    <input name="nik" type="text" class="form-control" id="example4cols3Input" placeholder="NIK" name="nik">
-                </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                    <label class="form-control-label" for="example5cols1Input">NOMOR HP</label>
-                    <input name="no_hp" type="text" class="form-control" id="example5cols1Input" placeholder="NOMOR HP" name="no_hp">
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                    <label class="form-control-label" for="example5cols2Input">NOMOR HP ORANG TUA</label>
-                    <input name="no_hp_ortu" type="text" class="form-control" id="example5cols2Input" placeholder="NOMOR HP ORANG TUA" name="no_hp_ortu">
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                    <label class="form-control-label" for="example5cols3Input">ALAMAT</label>
-                    <input name="alamat" type="text" class="form-control" id="example5cols3Input" placeholder="ALAMAT" name="alamat">
-                </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                <div class="form-group">
-                    <label class="form-control-label" for="example1cols1Input">KELURAHAN</label>
-                    <input name="kelurahan" type="text" class="form-control" id="example1cols1Input" placeholder="KELURAHAN" name="kelurahan">
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                    <label class="form-control-label" for="example1cols2Input">KECAMATAN</label>
-                    <input name="kecamatan" type="text" class="form-control" id="example1cols2Input" placeholder="kecamatan">
-                </div>
-                </div>
-                <div class="col-md-4">
-                <div class="form-group">
-                    <label class="form-control-label" for="example1cols3Input">KABUPATEN</label>
-                    <input name="kabupaten" type="text" class="form-control" id="example1cols3Input" placeholder="kabupaten">
-                </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-3">
-                <div class="form-group">
-                    <label class="form-control-label" for="example1cols1Input">JENIS KELAMIN</label>
-                    <select name="jenis_kelamin" class="form-control" data-toggle="select" name="jenis_kelamin">
-                        <option>Laki-Laki</option>
-                        <option>Perempuan</option>
-                    </select>
-                </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                <div class="form-group">
-                    <label>Pilih Program Studi 1 :</label>
-                    <select name="prodi1" class="form-control" name="prog1">
-                        <option>Pilih</option>
-                        <option value="S1 - Pendidikan Dokter">S1 - Pendidikan Dokter</option>
-                        <option value="D4 - Ankes">D4 - Analis Kesehatan</option>
-                        <option value="S1 - IKM">S1 - Ilmu Kesehatan Masyarakat</option>
-                        <option value="S1 - Gizi">S1 - Gizi</option>
-                        <option value="S1 - PGSD">S1 - PGSD</option>
-                        <option value="S1 - PGPAUD">S1 - PGPAUD</option>
-                        <option value="S1 - PBI">S1 - Pendidikan Bahasa Inggris</option>
-                        <option value="S1 - Akuntansi">S1 - Akuntansi</option>
-                        <option value="S1 - Manajemen">S1 - Manajemen</option>
-                        <option value="S1 - SI">S1 - Sistem Informasi</option>
-                        <option value="S1 - Keperawatan">S1 - Keperawatan</option>
-                        <option value="D3 - Keperawatan">D3 - Keperawatan</option>
-                        <option value="D4 - Bidan">D4 - Bidan</option>
-                        <option value="D3 - Kebidanan">D3 - Kebidanan</option>
-                    </select>
-                </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                <div class="form-group">
-                    <label>Pilih Program Studi 2 :</label>
-                    <select name="prodi2" class="form-control" name="prog2">
-                        <option>Pilih</option>
-                        <option value="S1 - Pendidikan Dokter">S1 - Pendidikan Dokter</option>
-                        <option value="D4 - Ankes">D4 - Analis Kesehatan</option>
-                        <option value="S1 - IKM">S1 - Ilmu Kesehatan Masyarakat</option>
-                        <option value="S1 - Gizi">S1 - Gizi</option>
-                        <option value="S1 - PGSD">S1 - PGSD</option>
-                        <option value="S1 - PGPAUD">S1 - PGPAUD</option>
-                        <option value="S1 - PBI">S1 - Pendidikan Bahasa Inggris</option>
-                        <option value="S1 - Akuntansi">S1 - Akuntansi</option>
-                        <option value="S1 - Manajemen">S1 - Manajemen</option>
-                        <option value="S1 - SI">S1 - Sistem Informasi</option>
-                        <option value="S1 - Keperawatan">S1 - Keperawatan</option>
-                        <option value="D3 - Keperawatan">D3 - Keperawatan</option>
-                        <option value="D4 - Bidan">D4 - Bidan</option>
-                        <option value="D3 - Kebidanan">D3 - Kebidanan</option>
-                    </select>
-                </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                <div class="form-group">
-                    <label>Pilih Program Studi 3 :</label>
-                    <select name="prodi3" class="form-control" name="prog3">
-                        <option>Pilih</option>
-                        <option value="S1 - Pendidikan Dokter">S1 - Pendidikan Dokter</option>
-                        <option value="D4 - Ankes">D4 - Analis Kesehatan</option>
-                        <option value="S1 - IKM">S1 - Ilmu Kesehatan Masyarakat</option>
-                        <option value="S1 - Gizi">S1 - Gizi</option>
-                        <option value="S1 - PGSD">S1 - PGSD</option>
-                        <option value="S1 - PGPAUD">S1 - PGPAUD</option>
-                        <option value="S1 - PBI">S1 - Pendidikan Bahasa Inggris</option>
-                        <option value="S1 - Akuntansi">S1 - Akuntansi</option>
-                        <option value="S1 - Manajemen">S1 - Manajemen</option>
-                        <option value="S1 - SI">S1 - Sistem Informasi</option>
-                        <option value="S1 - Keperawatan">S1 - Keperawatan</option>
-                        <option value="D3 - Keperawatan">D3 - Keperawatan</option>
-                        <option value="D4 - Bidan">D4 - Bidan</option>
-                        <option value="D3 - Kebidanan">D3 - Kebidanan</option>
-                    </select>
-                </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                <div class="form-group">
-                    <label class="form-control-label" for="example1cols1Input">PAS FOTO</label>
-                    <div class="dropzone dropzone-single mb-3" data-toggle="dropzone" data-dropzone-url="http://">
-                    <div class="fallback">
-                        <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
-                    </div>
-                    <div class="dz-preview dz-preview-single">
-                        <div class="dz-preview-cover">
-                        <img class="dz-preview-img" src="..." alt="..." data-dz-thumbnail>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-        </div>
-    </div>
-    </form>
-      <footer class="footer pt-0">
-        <div class="row align-items-center justify-content-lg-between">
-          <div class="col-lg-6">
-            <div class="copyright text-center  text-lg-left  text-muted">
-              &copy; 2021 <a href="#" class="font-weight-bold ml-1">Kelompok 1</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  {% endblock %}
- 
-  <script src='{% static "admin/assets/vendor/jquery/dist/jquery.min.js" %}'></script>
-  <script src='{% static "admin/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js" %}'></script>
-  <script src='{% static "admin/assets/vendor/js-cookie/js.cookie.js" %}'></script>
-  <script src='{% static "admin/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js" %}'></script>
-  <script src='{% static "admin/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js" %}'></script>
- 
-  <script src='{% static "admin/assets/js/argon.js" %}' ?v=1.2.1></script>
-
-  <script src="./assets/js/demo.min.js"></script>
-</body>
-
-</html>
+  </div>
+</div>
+{% endblock content %} {% block js %}
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+{% endblock %}

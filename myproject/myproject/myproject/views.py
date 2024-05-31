@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login
-from django.shortcuts import redirect
 
 def home(request):
     template = "halaman/home/index.html"
@@ -16,12 +15,12 @@ def akun_registrasi(request):
     }
     return render(request, template, context)
 
-def form_pendaftaran(request):
-    template = "dashboard/snippets/formulir.html"
-    context = {
-        'title': 'Form Pendaftaran',
-    }
-    return render(request, template, context)
+# def form_pendaftaran(request):
+#     template = "dashboard/snippets/formulir.html"
+#     context = {
+#         'title': 'Form Pendaftaran',
+#     }
+#     return render(request, template, context)
 
 def upload_berkas(request):
     template = "dashboard/snippets/upload-file.html"

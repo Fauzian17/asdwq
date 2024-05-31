@@ -20,7 +20,6 @@ from django.urls import path, include
 from myproject.authtentifikasi import akun_login, akun_registrasi
 from myproject.views import (
     home,
-    form_pendaftaran,
     upload_berkas,
     contact,
     dashboard,
@@ -29,7 +28,7 @@ from myproject.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('form-pendaftaran/', form_pendaftaran, name='form-pendaftaran'),
+    # path('form-pendaftaran/', form_pendaftaran, name='form-pendaftaran'),
     path('upload-berkas/', upload_berkas, name='upload-berkas'),
     path('contact/', contact, name='contact'),
     path('authentifikasi/login', akun_login, name='akun_login'),
@@ -37,5 +36,6 @@ urlpatterns = [
     path('authentifikasi/registrasi', akun_registrasi, name='akun_registrasi'),
     path('dashboard/', dashboard, name='dashboard'),
     path('', include('pengguna.urls')),
+    # path('create_formulir',create_formulir,name='formulir'),
 ]
 

@@ -27,23 +27,39 @@ def akun_pengguna(request):
         'title': 'Akun Pengguna',
     }
     return render(request, template, context)
+
     
+
 def formulir_view(request):
-    print(request.user)
-    template= "dashboard/snippets/formulir.html"
+    template = "dashboard/snippets/formulir_view.html"
+    
     if request.method == "POST":
         form = FormulirForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('{% url "dashboard" %}')
+            return redirect('dashboard')  # Replace with your desired redirect URL
         else:
             print("Form is invalid")
-            print(form.errors)  # Print form errors
-            print(request.POST)  # Print POST data for debugging
+            print(form.errors)  # Print form errors for debugging
     else:
         form = FormulirForm()
+
     context = {
         'title': 'Formulir',
         'form': form
     }
     return render(request, template, context)
+
+def create_formulir(request):
+    template='dashboard/snippets/formulir.html'
+    if request.method == "POST":
+        form = FormulirForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('success_page')  # Ganti dengan URL halaman sukses Anda
+    else:
+        form = FormulirForm()
+
+    context={'form': form, 'title': 'Buat Formulir Baru'}
+
+    return render(request,template, context)

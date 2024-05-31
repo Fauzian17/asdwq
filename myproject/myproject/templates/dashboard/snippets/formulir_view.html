@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <!-- Include any required CSS or JS here -->
+  </head>
+  <body>
+    <div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Forms</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="container-fluid mt--6">
+        <div class="card mb-4">
+          <!-- Card header -->
+          <div class="card-header">
+            <h3 class="mb-0">Formulir Pendaftaran</h3>
+          </div>
+          <!-- Card body -->
+          <div class="card-body">
+            <!-- Form groups used in grid -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_nama">Nama Lengkap</label>
+                  {{ form.nama }}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_email">Email</label>
+                  {{ form.email }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_tempat_lahir">Tempat Lahir</label>
+                  {{ form.tempat_lahir }}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_tanggal_lahir">Tanggal Lahir</label>
+                  {{ form.tanggal_lahir }}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_nik">NIK</label>
+                  {{ form.nik }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_no_hp">Nomor HP</label>
+                  {{ form.no_hp }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_no_hp_ortu">Nomor HP Orang Tua</label>
+                  {{ form.no_hp_ortu }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_kelurahan">Kelurahan</label>
+                  {{ form.kelurahan }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_kecamatan">Kecamatan</label>
+                  {{ form.kecamatan }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_kota">Kota</label>
+                  {{ form.kota }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_jenis_kelamin">Jenis Kelamin</label>
+                  {{ form.jenis_kelamin }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label for="id_prog1">Pilih Program Studi 1 :</label>
+                  {{ form.prog1 }}
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label for="id_prog2">Pilih Program Studi 2 :</label>
+                  {{ form.prog2 }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="form-control-label" for="id_foto">Pas Foto</label>
+                  {{ form.foto }}
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <footer class="footer pt-0">
+      <div class="row align-items-center justify-content-lg-between">
+        <div class="col-lg-6">
+          <div class="copyright text-center text-lg-left text-muted">&copy; 2021 <a href="#" class="font-weight-bold ml-1">Kelompok 1</a></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
