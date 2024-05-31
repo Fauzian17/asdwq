@@ -60,6 +60,9 @@ def create_formulir(request):
     else:
         form = FormulirForm()
 
-    context={'form': form, 'title': 'Buat Formulir Baru'}
+    context={
+        'form': form, 
+        'title': 'Buat Formulir Baru'
+        }
 
     return render(request,template, context)

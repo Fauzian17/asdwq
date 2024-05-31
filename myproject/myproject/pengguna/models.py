@@ -24,14 +24,14 @@ class Formulir(models.Model):
     nama = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
     tempat_lahir = models.CharField(max_length=255, blank=True, null=True)
-    tanggal_lahir = models.DateField(default=timezone.now)
+    tanggal_lahir = models.DateField(default='')
     nik = models.CharField(max_length=16, blank=True, null=True)
     no_hp = models.CharField(max_length=15, blank=True, null=True)
     no_hp_ortu = models.CharField(max_length=15, blank=True, null=True)
     alamat = models.TextField(max_length=255, blank=True, null=True)
     kelurahan = models.CharField(max_length=255, blank=True, null=True)
     kecamatan = models.CharField(max_length=255, blank=True, null=True)
-    kabupaten = models.CharField(max_length=255, blank=True, null=True, default='Default Kabupaten')  # Tambahkan default
+    kabupaten = models.CharField(max_length=255, blank=True, null=True, default='')  # Tambahkan default
     jenis_kelamin = models.CharField(max_length=10, choices=[('Laki-Laki', 'Laki-Laki'), ('Perempuan', 'Perempuan')], blank=True, null=True)
     prodi1 = models.CharField(max_length=50, choices=[
         ('S1 - Pendidikan Dokter', 'S1 - Pendidikan Dokter'),
@@ -64,7 +64,7 @@ class Formulir(models.Model):
         ('D3 - Keperawatan', 'D3 - Keperawatan'),
         ('D4 - Bidan', 'D4 - Bidan'),
         ('D3 - Kebidanan', 'D3 - Kebidanan')
-    ], blank=True, null=True, default='S1 - Pendidikan Dokter')  # Tambahkan default
+    ], blank=True, null=True, default='')  # Tambahkan default
     prodi3 = models.CharField(max_length=50, choices=[
         ('S1 - Pendidikan Dokter', 'S1 - Pendidikan Dokter'),
         ('D4 - Analis Kesehatan', 'D4 - Analis Kesehatan'),
@@ -80,7 +80,7 @@ class Formulir(models.Model):
         ('D3 - Keperawatan', 'D3 - Keperawatan'),
         ('D4 - Bidan', 'D4 - Bidan'),
         ('D3 - Kebidanan', 'D3 - Kebidanan')
-    ], blank=True, null=True, default='S1 - Pendidikan Dokter')  # Tambahkan default
+    ], blank=True, null=True, default='')  # Tambahkan default
     foto = models.ImageField(upload_to='uploads/')
 
     def __str__(self):
