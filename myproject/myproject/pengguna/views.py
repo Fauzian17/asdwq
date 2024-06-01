@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
+
 from pengguna.models import Formulir
 from pengguna.forms import FormulirForm
+
 
 # Create your views here.
 
@@ -30,39 +32,33 @@ def akun_pengguna(request):
 
     
 
-def formulir_view(request):
-    template = "dashboard/snippets/formulir_view.html"
-    
-    if request.method == "POST":
-        form = FormulirForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('dashboard')  # Replace with your desired redirect URL
-        else:
-            print("Form is invalid")
-            print(form.errors)  # Print form errors for debugging
-    else:
-        form = FormulirForm()
-
+def formulir_view(request, kode_formulir):
+    try:
+        formulir = Formulir.objects.get(kode_formulir=kode_formulir)
+        nama_formulir = formulir.nama  # Asumsi bahwa model Formulir memiliki field 'nama'
+    except Formulir.DoesNotExist:
+        nama_formulir = None
     context = {
         'title': 'Formulir',
-        'form': form
+        'nama_formulir': nama_formulir
     }
-    return render(request, template, context)
+    return render(request, 'dashboard/snippets/formulir_view.html', context)
+
 
 def create_formulir(request):
-    template='dashboard/snippets/formulir.html'
     if request.method == "POST":
         form = FormulirForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('success_page')  # Ganti dengan URL halaman sukses Anda
+            return redirect('formulir_view')  # Ganti dengan URL halaman sukses Anda
     else:
         form = FormulirForm()
 
     context={
         'form': form, 
-        'title': 'Buat Formulir Baru'
+        'title': 'Formulir Pendaftaran'
         }
 
-    return render(request,template, context)
+    return render(request,'dashboard/snippets/formulir.html', context)
+
+

@@ -30,7 +30,7 @@
     <script src='{% static "admin/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js" %}'></script>
     <script src='{% static "admin/assets/js/argon.js" %}' ?v=1.2.1></script>
     <!-- Demo JS - remove this in your project -->
-    <script src="./assets/js/demo.min.js"></script>
+    <script src="{% static 'admin/assets/js/demo.min.js' %}"></script>
       
     <!-- chart -->
     <script src="{% static 'dashboard/assets/js/core/popper.min.js' %}"></script>
@@ -44,26 +44,5 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{% static 'dashboard/assets/js/material-dashboard.min.js' %}?v=3.0.1"></script>
   
-  <!-- calendar -->
-  <script src="{% static 'dashboard/assets/js/core/popper.min.js' %}"></script>
-  <script src="{% static 'dashboard/assets/js/core/bootstrap.min.js' %}"></script>
-  <script src="{% static 'dashboard/assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
-  <script src="{% static 'dashboard/assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
-  <script src="{% static 'dashboard/assets/js/plugins/fullcalendar.min.js' %}"></script>
-  <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-              initialView: 'dayGridMonth',
-              events: [
-                // Contoh event
-                { title: 'Event Satu', start: '2024-04-01' },
-                { title: 'Event Dua', start: '2024-04-02', end: '2024-04-05' },
-                { title: 'Event Tiga', start: '2024-04-09T16:00:00' },
-              ]
-            });
-            calendar.render();
-          });
-        </script>
 </body>
 </html>
